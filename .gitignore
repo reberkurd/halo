@@ -1,0 +1,8 @@
+# Quarantined infected PHP files (never publish)
+_quarantine/
+
+# Editor / tooling markers
+.freebuff/
+
+# Laragon Apache/PHP upgrader backups
+*.phpupgrader.*

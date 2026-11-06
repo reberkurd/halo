@@ -1,0 +1,15 @@
+# تعيين ملف الفهرس الرئيسي للموقع
+DirectoryIndex index.html index.htm
+
+# تفعيل إعادة التوجيه
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # تحويل الزوار تلقائياً إلى رابط HTTPS الآمن
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# حماية المجلدات من الاستعراض المباشر
+Options -Indexes
