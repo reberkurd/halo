@@ -1333,7 +1333,7 @@ nav a.active {
 
 .back-to-top {
     position: fixed;
-    bottom: 90px;
+    bottom: 164px;
     right: 24px;
     z-index: 999;
     width: 44px;
@@ -1612,4 +1612,210 @@ footer::before {
         scroll-behavior: auto !important;
     }
     .hero-slider::before { animation: none; transform: none; }
+}
+
+/* ============================================================
+   FLOATING EMAIL BUTTON + MAILBOX PAGE
+   ============================================================ */
+
+.float-mail {
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.float-mail:hover .tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mail-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px var(--primary-glow);
+    transition: all var(--transition);
+}
+
+.mail-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(56, 189, 248, 0.6);
+}
+
+.mail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.mail-card {
+    padding: 2.2rem 1.8rem;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.45));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+}
+
+.mail-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(2, 6, 23, 0.5);
+}
+
+.mail-card-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+.mail-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.mail-card p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: rgba(248, 250, 252, 0.7);
+    margin-bottom: 1.4rem;
+}
+
+.mail-address {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    word-break: break-all;
+    margin-bottom: 0.6rem;
+}
+
+.mail-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.35rem 0.95rem;
+    margin-bottom: 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(248, 250, 252, 0.7);
+}
+
+.mail-status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f59e0b;
+}
+
+.mail-status.active .dot {
+    background: var(--success);
+}
+
+.mail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail-btn-primary,
+.mail-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.8rem 1.7rem;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.mail-btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--bg-deep);
+}
+
+.mail-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.4);
+}
+
+.mail-btn-primary.is-disabled {
+    background: var(--bg-card-hover);
+    color: rgba(248, 250, 252, 0.5);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.mail-btn-ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.mail-btn-ghost:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.mail-copied {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: var(--success);
+    opacity: 0;
+    transition: all var(--transition);
+}
+
+.mail-copied.show {
+    opacity: 1;
+}
+
+.mail-note {
+    max-width: 920px;
+    margin: 2.2rem auto 0;
+    padding: 1.5rem 1.75rem;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: rgba(248, 250, 252, 0.75);
+}
+
+.mail-note h4 {
+    font-family: var(--font-heading);
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+}
+
+.mail-note ol {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.mail-note li {
+    margin-bottom: 0.4rem;
 }
