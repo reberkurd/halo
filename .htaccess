@@ -6,7 +6,9 @@ DirectoryIndex index.html index.htm
     RewriteEngine On
     RewriteBase /
 
-    # تحويل الزوار تلقائياً إلى رابط HTTPS الآمن
+    # تحويل الزوار تلقائياً إلى رابط HTTPS الآمن (ما عدا التطوير المحلي)
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
