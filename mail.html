@@ -65,41 +65,6 @@
                     </a>
                 </div>
             </div>
-
-            <!-- Send email -->
-            <div class="mail-card fade-in" style="transition-delay: 0.15s;">
-                <div class="mail-card-icon">
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 2 11 13"/>
-                        <path d="M22 2 15 22l-4-9-9-4z"/>
-                    </svg>
-                </div>
-                <h3>Send a Message</h3>
-                <div class="mail-address">info@halorobotech.com</div>
-                <div class="mail-actions">
-                    <a href="mailto:info@halorobotech.com?subject=Inquiry%20from%20website" class="mail-btn-primary" id="sendBtn">
-                        Write Email
-                        <span aria-hidden="true">→</span>
-                    </a>
-                    <button type="button" class="mail-btn-ghost" id="copyBtn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="9" y="9" width="13" height="13" rx="2"/>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                        </svg>
-                        Copy
-                    </button>
-                </div>
-                <div class="mail-copied" id="copied">Address copied</div>
-            </div>
-        </div>
-
-        <div class="mail-note fade-in">
-            <h4>How the mailbox works</h4>
-            <ol>
-                <li>The inbox is opened from the webmail panel of the mail provider hosting <strong>info@halorobotech.com</strong>.</li>
-                <li>Incoming mail is routed to that provider through the domain's MX records.</li>
-                <li>As soon as the mailbox is activated, the <em>Open Inbox</em> button links straight to its login page.</li>
-            </ol>
         </div>
     </section>
 
@@ -186,7 +151,6 @@
          ============================================================ -->
     <script>
         // --- Mailbox configuration ---
-        const MAIL_ADDRESS = 'info@halorobotech.com';
         // رابط صفحة تسجيل الدخول المباشرة (Zoho Accounts) للوصول إلى البريد
         const WEBMAIL_URL = 'https://accounts.zoho.com/signin?servicename=AaaServer&serviceurl=https%3A%2F%2Faccounts.zoho.com%2Fhome';
 
@@ -206,25 +170,6 @@
             webmailBtn.addEventListener('click', (e) => e.preventDefault());
             mailStatusText.textContent = 'Awaiting mail service';
         }
-
-        // --- Copy address ---
-        const copyBtn = document.getElementById('copyBtn');
-        const copied = document.getElementById('copied');
-
-        copyBtn.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(MAIL_ADDRESS);
-            } catch (err) {
-                const field = document.createElement('textarea');
-                field.value = MAIL_ADDRESS;
-                document.body.appendChild(field);
-                field.select();
-                document.execCommand('copy');
-                document.body.removeChild(field);
-            }
-            copied.classList.add('show');
-            setTimeout(() => copied.classList.remove('show'), 1800);
-        });
 
         // --- Mobile Menu ---
         const hamburger = document.getElementById('hamburger');

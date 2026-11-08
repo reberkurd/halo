@@ -1652,7 +1652,8 @@ footer::before {
 
 .mail-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: minmax(0, 460px);
+    justify-content: center;
     gap: 24px;
     max-width: 920px;
     margin: 0 auto;
